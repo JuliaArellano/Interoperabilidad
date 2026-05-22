@@ -39,8 +39,8 @@ st.markdown("""
     [data-testid="stSidebar"] label, [data-testid="stSidebar"] p { color: white !important; font-weight: 700 !important; }
     [data-testid="stFileUploader"] section button, [data-testid="stFileUploader"] section div,
     [data-testid="stFileUploader"] section span, [data-testid="stFileUploader"] section label,
-    [data-testid="stFileUploader"] section small { color: green !important; }
-    [data-testid="stFileUploaderFileName"] { color: white !important; }
+    [data-testid="stFileUploader"] section small { color: black !important; }
+    [data-testid="stFileUploaderFileName"] { color: black !important; }
     [data-testid="stFileUploaderFileData"] small { color: white !important; }
     [data-testid="stFileUploaderFileData"] svg { fill: black !important; color: black !important; filter: brightness(0); }
     [data-testid="stFileUploaderFileData"] button svg { fill: black !important; color: black !important; }
