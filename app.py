@@ -629,7 +629,7 @@ else:
     with st.sidebar:
         st.markdown("## ⚙️ Panel de Control")
         st.markdown("---")
-        archivo = st.file_uploader("Subir mensaje HL7 v2", type=["hl7"])
+        archivo = = st.file_uploader("Subir mensaje HL7 v2", type=["hl7"])
         if st.button("🏠 Volver al Inicio"):
             st.session_state.empezar = False
             st.rerun()
