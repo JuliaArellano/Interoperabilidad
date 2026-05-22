@@ -48,7 +48,7 @@ st.markdown("""
     .patient-label { color: #6c757d; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
     .patient-value { color: #2c3e50; font-size: 1.05rem; font-weight: 600; word-wrap: break-word; }
     .upna-logo img { border-radius: 5px; background-color: white; padding: 3px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-    .stButton>button { width: 100%; border-radius: 10px; background-color: #306998; color: white; }
+    .stButton>button { width: 100%; border-radius: 10px; background-color: #306998; color: black; }
     .ecg-scroll-container { width: 100%; overflow-x: auto; white-space: nowrap; background-color: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px; }
     </style>
     """, unsafe_allow_html=True)
