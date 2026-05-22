@@ -44,18 +44,28 @@ st.markdown("""
     .stButton>button { width: 100%; border-radius: 10px; background-color: #306998; color: white; }
     .ecg-scroll-container { width: 100%; overflow-x: auto; white-space: nowrap; background-color: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px; }
     
-    /* --- CAMBIO A LÍNEA CONTINUA (SOLID) --- */
+    /* --- CONFIGURACIÓN DEL CARGADOR DE ARCHIVOS (AZUL OSCURO MARINO) --- */
     [data-testid="stFileUploader"] section {
         background-color: #1a365d !important;
-        border: 2px solid #ffffff !important; /* <--- 'solid' en vez de 'dashed' */
+        border: 2px solid #ffffff !important;
         border-radius: 10px;
         padding: 10px;
     }
-    /* Forzar textos del cargador en blanco */
+    
+    /* Forzar textos generales del cargador en blanco */
     [data-testid="stFileUploader"] section * {
         color: #ffffff !important;
     }
-    /* Botón interno "Browse files" ajustado */
+    
+    /* Forzar visibilidad del nombre del archivo cargado (bloque de texto y metadatos) */
+    [data-testid="stFileUploaderDropzone"] [data-testid="stWidgetLabel"] p,
+    [data-testid="stFileUploader"] [data-testid="stMarkdownContainer"] p,
+    [data-testid="stFileUploader"] span,
+    [data-testid="stFileUploader"] div {
+        color: #ffffff !important;
+    }
+    
+    /* Botón interno "Browse files" / "Upload" ajustado */
     [data-testid="stFileUploader"] button {
         background-color: #2b4c7e !important;
         color: white !important;
