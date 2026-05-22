@@ -29,14 +29,6 @@ if 'empezar' not in st.session_state:
     st.session_state.empezar = False
 
 # 2. BLOQUE DE ESTILO (CSS) - CON EL AZUL DE PYTHON (#306998)
-Viendo la captura queda claro el problema: al poner el fondo del mismo azul (#306998) sobre la barra lateral que ya tiene ese mismo color, el cargador "desaparece" visualmente y solo se ve el recuadro blanco del botón.
-
-Si el negro rompe demasiado la estética, la mejor solución técnica y visual es usar un azul muy oscuro (azul noche/marino). De esta forma mantiene la armonía con la paleta de colores de tu aplicación, contrasta perfectamente con la barra lateral y hace que el texto blanco sea 100% legible.
-
-Prueba a sustituir el bloque CSS por este código, usando el tono #1a365d (un azul oscuro elegante):
-
-Python
-# 2. BLOQUE DE ESTILO (CSS) - CON AZUL OSCURO EN EL CARGADOR PARA CONTRAS-TE
 st.markdown("""
     <style>
     .stApp { background-color: #f8f9fa; }
