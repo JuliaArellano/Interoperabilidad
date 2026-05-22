@@ -29,6 +29,14 @@ if 'empezar' not in st.session_state:
     st.session_state.empezar = False
 
 # 2. BLOQUE DE ESTILO (CSS) - CON EL AZUL DE PYTHON (#306998)
+Viendo la captura queda claro el problema: al poner el fondo del mismo azul (#306998) sobre la barra lateral que ya tiene ese mismo color, el cargador "desaparece" visualmente y solo se ve el recuadro blanco del botón.
+
+Si el negro rompe demasiado la estética, la mejor solución técnica y visual es usar un azul muy oscuro (azul noche/marino). De esta forma mantiene la armonía con la paleta de colores de tu aplicación, contrasta perfectamente con la barra lateral y hace que el texto blanco sea 100% legible.
+
+Prueba a sustituir el bloque CSS por este código, usando el tono #1a365d (un azul oscuro elegante):
+
+Python
+# 2. BLOQUE DE ESTILO (CSS) - CON AZUL OSCURO EN EL CARGADOR PARA CONTRAS-TE
 st.markdown("""
     <style>
     .stApp { background-color: #f8f9fa; }
@@ -44,21 +52,22 @@ st.markdown("""
     .stButton>button { width: 100%; border-radius: 10px; background-color: #306998; color: white; }
     .ecg-scroll-container { width: 100%; overflow-x: auto; white-space: nowrap; background-color: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px; }
     
-    /* --- CONFIGURACIÓN DEL CARGADOR CON EL MISMO AZUL DE LA SIDEBAR --- */
+    /* --- NUEVA CONFIGURACIÓN: AZUL OSCURO NOCHE --- */
     [data-testid="stFileUploader"] section {
-        background-color: #306998 !important;
-        border: 2px dashed #ffffff !important; /* Borde blanco discontinuo para que resalte */
+        background-color: #1a365d !important; /* Azul marino oscuro */
+        border: 2px dashed #ffffff !important; /* Línea discontinua blanca clara */
         border-radius: 10px;
+        padding: 10px;
     }
-    /* Forzar textos en blanco dentro del cargador */
+    /* Asegurar que los textos informativos brillen en blanco */
     [data-testid="stFileUploader"] section * {
         color: #ffffff !important;
     }
-    /* Botón interno "Browse files" en blanco con texto azul para contraste */
+    /* Botón "Browse files" integrado en el diseño oscuro */
     [data-testid="stFileUploader"] button {
-        background-color: #ffffff !important;
-        color: #306998 !important;
-        border: none !important;
+        background-color: #2b4c7e !important; /* Un azul intermedio */
+        color: white !important;
+        border: 1px solid #ffffff !important;
         font-weight: bold;
     }
     </style>
