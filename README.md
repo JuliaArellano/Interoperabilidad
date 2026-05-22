@@ -2,7 +2,7 @@
   <tr>
     <td>
       <h1>
-        Plataforma de Interoperabilidad de mensajes de observación HL7 v2 → FHIR R5 con Procesamiento ECG
+        Plataforma de Interoperabilidad de mensajes ORU HL7 v2 → FHIR R5 con Procesamiento ECG
       </h1>
     </td>
     <td align="right">
