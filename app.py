@@ -44,17 +44,12 @@ st.markdown("""
     .stButton>button { width: 100%; border-radius: 10px; background-color: #306998; color: white; }
     .ecg-scroll-container { width: 100%; overflow-x: auto; white-space: nowrap; background-color: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px; }
     
-    /* --- CONFIGURACIÓN DEL CARGADOR DE ARCHIVOS (VACÍO - AZUL OSCURO) --- */
+    /* --- CONFIGURACIÓN BASE DEL CARGADOR DE ARCHIVOS --- */
     [data-testid="stFileUploader"] section {
         background-color: #1a365d !important;
         border: 2px solid #ffffff !important;
         border-radius: 10px;
         padding: 10px;
-    }
-    
-    /* Forzar textos del cargador en blanco por defecto */
-    [data-testid="stFileUploader"] section * {
-        color: #ffffff !important;
     }
     
     /* Botón interno "Browse files" / "Upload" */
@@ -65,23 +60,30 @@ st.markdown("""
         font-weight: bold;
     }
 
-    /* --- SOLUCIÓN INTEGRAL: CUANDO YA HAY UN ARCHIVO CARGADO --- */
-    /* Modifica el contenedor interno que Streamlit vuelve gris claro */
-    [data-testid="stFileUploaderFileName"] {
-        background-color: #ffffff !important; /* Fondo blanco para el bloque del archivo */
-        border-radius: 6px;
-        padding: 5px 10px;
+    /* --- SOLUCIÓN DEFINITIVA PARA EL ARCHIVO CARGADO --- */
+    /* Eliminamos por completo el fondo gris claro de Streamlit para que use el azul oscuro de fondo */
+    [data-testid="stFileUploaderDropzone"] > div,
+    [data-testid="stFileUploaderFileName"],
+    .st-emotion-cache-12w0qpk,
+    .st-emotion-cache-179g860 {
+        background-color: #1a365d !important; /* Mismo azul marino del contenedor */
+        border: none !important;
     }
     
-    /* Forzamos que los textos del archivo cargado pasen a color oscuro para contrastar con su caja blanca */
+    /* Forzamos a muerte que todos los textos, títulos y tamaños del archivo sean blanco brillante */
+    [data-testid="stFileUploader"] section *,
+    [data-testid="stFileUploader"] p,
+    [data-testid="stFileUploader"] span,
+    [data-testid="stFileUploader"] div,
     [data-testid="stFileUploaderFileName"] * {
-        color: #1a365d !important;
-        font-weight: 600 !important;
+        color: #ffffff !important;
     }
     
-    /* Aseguramos que el botón de eliminar archivo (la X) se mantenga visible */
-    [data-testid="stFileUploaderFileName"] button * {
-        color: #6c757d !important;
+    /* Ponemos la 'X' de borrar archivo también en blanco para que resalte en el fondo oscuro */
+    [data-testid="stFileUploader"] button[aria-label="Remove file"] svg,
+    [data-testid="stFileUploader"] button svg {
+        fill: #ffffff !important;
+        color: #ffffff !important;
     }
     </style>
     """, unsafe_allow_html=True)
