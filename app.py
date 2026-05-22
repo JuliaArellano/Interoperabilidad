@@ -43,6 +43,23 @@ st.markdown("""
     .upna-logo img { border-radius: 5px; background-color: white; padding: 3px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
     .stButton>button { width: 100%; border-radius: 10px; background-color: #306998; color: white; }
     .ecg-scroll-container { width: 100%; overflow-x: auto; white-space: nowrap; background-color: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px; }
+    
+    /* --- NUEVAS REGLAS PARA EL CARGADOR DE ARCHIVOS EN NEGRO --- */
+    [data-testid="stFileUploader"] section {
+        background-color: #000000 !important;
+        border: 2px dashed #444444 !important;
+        border-radius: 10px;
+    }
+    /* Cambia el color de los textos dentro del cargador a blanco para que contrasten */
+    [data-testid="stFileUploader"] section * {
+        color: #ffffff !important;
+    }
+    /* Cambia el color del botón pequeño "Browse files" dentro del cargador */
+    [data-testid="stFileUploader"] button {
+        background-color: #222222 !important;
+        color: white !important;
+        border: 1px solid #444444 !important;
+    }
     </style>
     """, unsafe_allow_html=True)
 
