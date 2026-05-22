@@ -37,11 +37,29 @@ st.markdown("""
     [data-testid="stSidebar"] .stMarkdown, 
     [data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3, 
     [data-testid="stSidebar"] label, [data-testid="stSidebar"] p { color: white !important; font-weight: 700 !important; }
-    [data-testid="stFileUploader"] button[data-testid="baseButton-secondary"] * { color: black !important; }
-    [data-testid="stFileUploaderFileName"] { color: black !important; }
-    [data-testid="stFileUploaderFileData"] small { color: white !important; }
-    [data-testid="stFileUploaderFileData"] svg { fill: black !important; color: black !important; filter: brightness(0); }
-    [data-testid="stFileUploaderFileData"] button svg { fill: black !important; color: black !important; }
+    /* ===== FILE UPLOADER ===== */
+
+    [data-testid="stFileUploader"] {background-color: white;border-radius: 10px; padding: 10px;}
+
+/* Texto uploader */
+    [data-testid="stFileUploader"] label,
+    [data-testid="stFileUploader"] span,
+    [data-testid="stFileUploader"] small,
+    [data-testid="stFileUploader"] div {
+        color: #2c3e50 !important;
+    }
+
+    /* Nombre archivo */
+    [data-testid="stFileUploaderFileName"] {
+        color: #2c3e50 !important;
+        font-weight: 600;
+    }
+
+    /* Iconos */
+    [data-testid="stFileUploader"] svg {
+        fill: #306998 !important;
+        color: #306998 !important;
+    }
     .patient-box { background-color: #ffffff; padding: 15px; border-radius: 10px; border-left: 5px solid #306998; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 10px; }
     .patient-label { color: #6c757d; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
     .patient-value { color: #2c3e50; font-size: 1.05rem; font-weight: 600; word-wrap: break-word; }
