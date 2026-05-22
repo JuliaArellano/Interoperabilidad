@@ -37,9 +37,7 @@ st.markdown("""
     [data-testid="stSidebar"] .stMarkdown, 
     [data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3, 
     [data-testid="stSidebar"] label, [data-testid="stSidebar"] p { color: white !important; font-weight: 700 !important; }
-    [data-testid="stFileUploader"] section button, [data-testid="stFileUploader"] section div,
-    [data-testid="stFileUploader"] section span, [data-testid="stFileUploader"] section label,
-    [data-testid="stFileUploader"] section small { color: black !important; }
+    [data-testid="stFileUploader"] button[data-testid="baseButton-secondary"] * { color: black !important; }
     [data-testid="stFileUploaderFileName"] { color: black !important; }
     [data-testid="stFileUploaderFileData"] small { color: white !important; }
     [data-testid="stFileUploaderFileData"] svg { fill: black !important; color: black !important; filter: brightness(0); }
