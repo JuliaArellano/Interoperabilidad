@@ -44,7 +44,7 @@ st.markdown("""
     .stButton>button { width: 100%; border-radius: 10px; background-color: #306998; color: white; }
     .ecg-scroll-container { width: 100%; overflow-x: auto; white-space: nowrap; background-color: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px; }
     
-    /* --- CONFIGURACIÓN BASE DEL CARGADOR DE ARCHIVOS (AZUL OSCURO) --- */
+    /* --- CONFIGURACIÓN BASE DEL CARGADOR DE ARCHIVOS --- */
     [data-testid="stFileUploader"] section {
         background-color: #1a365d !important;
         border: 2px solid #ffffff !important;
@@ -60,25 +60,27 @@ st.markdown("""
         font-weight: bold;
     }
 
-    /* --- CAMBIO DE COLOR DEL RECUADRO INTERNO DEL ARCHIVO --- */
-    /* Forzamos el fondo del recuadro que contiene el nombre a un azul intermedio */
+    /* --- SOLUCIÓN DEFINITIVA PARA EL ARCHIVO CARGADO --- */
+    /* Eliminamos por completo el fondo gris claro de Streamlit para que use el azul oscuro de fondo */
     [data-testid="stFileUploaderDropzone"] > div,
     [data-testid="stFileUploaderFileName"],
-    div[data-testid="stFileUploaderDropzone"] + div > div {
-        background-color: #2b4c7e !important; /* <--- Color azul intermedio en vez de gris */
-        border: 1px solid #ffffff !important;
-        border-radius: 8px !important;
+    .st-emotion-cache-12w0qpk,
+    .st-emotion-cache-179g860 {
+        background-color: #1a365d !important; /* Mismo azul marino del contenedor */
+        border: none !important;
     }
     
-    /* Asegurar que todas las letras del archivo cargado sigan siendo blancas */
+    /* Forzamos a muerte que todos los textos, títulos y tamaños del archivo sean blanco brillante */
     [data-testid="stFileUploader"] section *,
-    [data-testid="stFileUploaderFileName"] *,
     [data-testid="stFileUploader"] p,
-    [data-testid="stFileUploader"] span {
+    [data-testid="stFileUploader"] span,
+    [data-testid="stFileUploader"] div,
+    [data-testid="stFileUploaderFileName"] * {
         color: #ffffff !important;
     }
     
-    /* Poner el icono de la cruz (eliminar archivo) en blanco brillante */
+    /* Ponemos la 'X' de borrar archivo también en blanco para que resalte en el fondo oscuro */
+    [data-testid="stFileUploader"] button[aria-label="Remove file"] svg,
     [data-testid="stFileUploader"] button svg {
         fill: #ffffff !important;
         color: #ffffff !important;
