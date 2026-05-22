@@ -66,7 +66,7 @@ Todos los recursos generados son agrupados dentro de un único recurso FHIR Bund
 ## Clonar repositorio
 
 ```bash
-git clone <url_repositorio>
+git clone <(https://github.com/JuliaArellano/Interoperabilidad.git)>
 cd <nombre_repositorio>
 ```
 
