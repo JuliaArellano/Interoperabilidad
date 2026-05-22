@@ -1,4 +1,4 @@
-# Plataforma de Interoperabilidad de mensajes de observación HL7 v2 → FHIR R5 con Procesamiento ECG <img src='imag/Logo_UPNA.svg' align="right" height="120" />
+# Plataforma de Interoperabilidad de mensajes de observación HL7 v2 → FHIR R5 con Procesamiento ECG <img src='imag/Logo_UPNA-1.png' align="right" height="120" />
 
 ## Descripción General
 
