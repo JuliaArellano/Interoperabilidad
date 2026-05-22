@@ -44,21 +44,22 @@ st.markdown("""
     .stButton>button { width: 100%; border-radius: 10px; background-color: #306998; color: white; }
     .ecg-scroll-container { width: 100%; overflow-x: auto; white-space: nowrap; background-color: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px; }
     
-    /* --- NUEVAS REGLAS PARA EL CARGADOR DE ARCHIVOS EN NEGRO --- */
+    /* --- CONFIGURACIÓN DEL CARGADOR CON EL MISMO AZUL DE LA SIDEBAR --- */
     [data-testid="stFileUploader"] section {
-        background-color: #000000 !important;
-        border: 2px dashed #444444 !important;
+        background-color: #306998 !important;
+        border: 2px dashed #ffffff !important; /* Borde blanco discontinuo para que resalte */
         border-radius: 10px;
     }
-    /* Cambia el color de los textos dentro del cargador a blanco para que contrasten */
+    /* Forzar textos en blanco dentro del cargador */
     [data-testid="stFileUploader"] section * {
         color: #ffffff !important;
     }
-    /* Cambia el color del botón pequeño "Browse files" dentro del cargador */
+    /* Botón interno "Browse files" en blanco con texto azul para contraste */
     [data-testid="stFileUploader"] button {
-        background-color: #222222 !important;
-        color: white !important;
-        border: 1px solid #444444 !important;
+        background-color: #ffffff !important;
+        color: #306998 !important;
+        border: none !important;
+        font-weight: bold;
     }
     </style>
     """, unsafe_allow_html=True)
