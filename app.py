@@ -44,20 +44,20 @@ st.markdown("""
     .stButton>button { width: 100%; border-radius: 10px; background-color: #306998; color: white; }
     .ecg-scroll-container { width: 100%; overflow-x: auto; white-space: nowrap; background-color: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px; }
     
-    /* --- NUEVA CONFIGURACIÓN: AZUL OSCURO NOCHE --- */
+    /* --- CAMBIO A LÍNEA CONTINUA (SOLID) --- */
     [data-testid="stFileUploader"] section {
-        background-color: #1a365d !important; /* Azul marino oscuro */
-        border: 2px dashed #ffffff !important; /* Línea discontinua blanca clara */
+        background-color: #1a365d !important;
+        border: 2px solid #ffffff !important; /* <--- 'solid' en vez de 'dashed' */
         border-radius: 10px;
         padding: 10px;
     }
-    /* Asegurar que los textos informativos brillen en blanco */
+    /* Forzar textos del cargador en blanco */
     [data-testid="stFileUploader"] section * {
         color: #ffffff !important;
     }
-    /* Botón "Browse files" integrado en el diseño oscuro */
+    /* Botón interno "Browse files" ajustado */
     [data-testid="stFileUploader"] button {
-        background-color: #2b4c7e !important; /* Un azul intermedio */
+        background-color: #2b4c7e !important;
         color: white !important;
         border: 1px solid #ffffff !important;
         font-weight: bold;
