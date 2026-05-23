@@ -12,7 +12,6 @@ st.set_page_config(
 if 'empezar' not in st.session_state:
     st.session_state.empezar = False
 
-# 2. BLOQUE DE ESTILO (CSS) - CON EL AZUL DE PYTHON (#306998)
 st.markdown("""<style>
 .stApp {background-color: #f8f9fa;}
 
@@ -164,14 +163,14 @@ else:
     with st.sidebar:
         st.markdown("## ⚙️ Panel de Control")
         st.markdown("---")
-        archivo = st.file_uploader("Subir mensaje HL7 v2", type=["hl7"])
+        archivo = st.file_uploader("Subir mensaje HL7 v2.6", type=["hl7"])
         if st.button("🏠 Volver al Inicio"):
             st.session_state.empezar = False
             st.rerun()
 
     col_titulo, col_logo = st.columns([6, 1])
     with col_titulo:
-        st.title("🏥 Conversor Clínico HL7 ➔ FHIR")
+        st.title("🏥 Conversor Clínico HL7 v2.6 ➔ FHIR")
         st.caption("Máster en Ingeniería Biomédica | Universidad Pública de Navarra")
     with col_logo:
         if os.path.exists("Upna.png"):
@@ -195,13 +194,13 @@ else:
 
                 if resumen["figura_plotly"] is not None:
                     st.markdown("<br>", unsafe_allow_html=True)
-                    st.subheader("📈 Trazado Electrocardiográfico Continuo (Papel Milimetrado)")
+                    st.subheader("📈 Visualización de ECGs")
                     st.markdown('<div class="ecg-scroll-container">', unsafe_allow_html=True)
                     st.plotly_chart(resumen["figura_plotly"], use_container_width=False)
                     st.markdown('</div>', unsafe_allow_html=True)
 
                 st.markdown("<br>", unsafe_allow_html=True)
-                st.subheader("🩺 Parámetros e Instrumentación del Mensaje (OBX)")
+                st.subheader("🩺 Observaciones del Mensaje (OBX)")
                 st.dataframe(resumen['datos'], use_container_width=True)
 
                 st.markdown("<br>", unsafe_allow_html=True)
