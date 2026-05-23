@@ -30,63 +30,174 @@ if 'empezar' not in st.session_state:
 
 # 2. BLOQUE DE ESTILO (CSS) - CON EL AZUL DE PYTHON (#306998)
 st.markdown("""
-    <style>
-    .stApp { background-color: #f8f9fa; }
-    [data-testid="stSidebar"] { background-color: #306998; }
-    [data-testid="stSidebar"] [data-testid="stVerticalBlock"] { padding-left: 1.5rem; padding-right: 1.5rem; }
-    [data-testid="stSidebar"] .stMarkdown, 
-    [data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3, 
-    [data-testid="stSidebar"] label, [data-testid="stSidebar"] p { color: white !important; font-weight: 700 !important; }
-    .patient-box { background-color: #ffffff; padding: 15px; border-radius: 10px; border-left: 5px solid #306998; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 10px; }
-    .patient-label { color: #6c757d; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
-    .patient-value { color: #2c3e50; font-size: 1.05rem; font-weight: 600; word-wrap: break-word; }
-    .upna-logo img { border-radius: 5px; background-color: white; padding: 3px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-    .stButton>button { width: 100%; border-radius: 10px; background-color: #306998; color: white; }
-    .ecg-scroll-container { width: 100%; overflow-x: auto; white-space: nowrap; background-color: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px; }
-    
-    /* --- CONFIGURACIÓN BASE DEL CARGADOR DE ARCHIVOS --- */
-    [data-testid="stFileUploader"] section {
-        background-color: #1a365d !important;
-        border: 2px solid #ffffff !important;
-        border-radius: 10px;
-        padding: 10px;
-    }
-    
-    /* Botón interno "Browse files" / "Upload" */
-    [data-testid="stFileUploader"] button {
-        background-color: #2b4c7e !important;
-        color: white !important;
-        border: 1px solid #ffffff !important;
-        font-weight: bold;
-    }
+<style>
 
-    /* --- SOLUCIÓN DEFINITIVA PARA EL ARCHIVO CARGADO --- */
-    /* Eliminamos por completo el fondo gris claro de Streamlit para que use el azul oscuro de fondo */
-    [data-testid="stFileUploaderDropzone"] > div,
-    [data-testid="stFileUploaderFileName"],
-    .st-emotion-cache-12w0qpk,
-    .st-emotion-cache-179g860 {
-        background-color: #1a365d !important; /* Mismo azul marino del contenedor */
-        border: none !important;
-    }
-    
-    /* Forzamos a muerte que todos los textos, títulos y tamaños del archivo sean blanco brillante */
-    [data-testid="stFileUploader"] section *,
-    [data-testid="stFileUploader"] p,
-    [data-testid="stFileUploader"] span,
-    [data-testid="stFileUploader"] div,
-    [data-testid="stFileUploaderFileName"] * {
-        color: #ffffff !important;
-    }
-    
-    /* Ponemos la 'X' de borrar archivo también en blanco para que resalte en el fondo oscuro */
-    [data-testid="stFileUploader"] button[aria-label="Remove file"] svg,
-    [data-testid="stFileUploader"] button svg {
-        fill: #ffffff !important;
-        color: #ffffff !important;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+/* =========================
+   APP GENERAL
+========================= */
+.stApp {
+    background-color: #f8f9fa;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+[data-testid="stSidebar"] {
+    background-color: #306998;
+}
+
+[data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* TODO EL TEXTO DEL SIDEBAR EN BLANCO */
+[data-testid="stSidebar"] .stMarkdown,
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] div {
+    color: white !important;
+    font-weight: 700 !important;
+}
+
+/* =========================
+   TARJETAS PACIENTE
+========================= */
+.patient-box {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 5px solid #306998;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 10px;
+}
+
+.patient-label {
+    color: #6c757d;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.patient-value {
+    color: #2c3e50;
+    font-size: 1.05rem;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+/* =========================
+   LOGO
+========================= */
+.upna-logo img {
+    border-radius: 5px;
+    background-color: white;
+    padding: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   BOTONES GENERALES
+========================= */
+.stButton > button {
+    width: 100%;
+    border-radius: 10px;
+    background-color: #306998 !important;
+    color: white !important;
+    border: none !important;
+}
+
+/* =========================
+   CONTENEDOR ECG
+========================= */
+.ecg-scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* =====================================================
+   FILE UPLOADER
+===================================================== */
+
+/* CAJA EXTERIOR */
+[data-testid="stFileUploader"] section {
+    background-color: #1a365d !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 12px !important;
+    padding: 12px !important;
+}
+
+/* DROPZONE */
+[data-testid="stFileUploaderDropzone"] {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* TEXTO "Drag and drop" */
+[data-testid="stFileUploaderDropzone"] * {
+    color: white !important;
+}
+
+/* BOTÓN + */
+[data-testid="stFileUploaderDropzone"] button {
+    background-color: #306998 !important;
+    color: white !important;
+    border: 1px solid white !important;
+    border-radius: 8px !important;
+}
+
+/* ARCHIVO SUBIDO */
+[data-testid="stFileUploaderFile"] {
+    background-color: #2b4c7e !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    padding: 8px !important;
+}
+
+/* TODO EL TEXTO DEL ARCHIVO */
+[data-testid="stFileUploaderFile"] * {
+    color: white !important;
+}
+
+/* ICONO DEL ARCHIVO */
+[data-testid="stFileUploaderFile"] svg {
+    fill: white !important;
+    color: white !important;
+}
+
+/* BOTÓN ELIMINAR */
+button[aria-label="Remove file"] {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* X ELIMINAR */
+button[aria-label="Remove file"] svg {
+    fill: white !important;
+    color: white !important;
+}
+
+/* EVITAR FONDOS GRISES RANDOM DE STREAMLIT */
+[data-testid="stFileUploader"] div {
+    background-color: transparent;
+}
+
+/* EXCEPCIÓN: mantener el archivo azul */
+[data-testid="stFileUploaderFile"] {
+    background-color: #2b4c7e !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
 
 
 # --- 3. MOTOR UNIVERSAL OPTIMIZADO HL7 -> FHIR ---
