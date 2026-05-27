@@ -33,7 +33,6 @@ El sistema implementa una correspondencia semántica entre los segmentos HL7 v2 
 
 | Segmento HL7 v2 | Recurso FHIR                 |
 | --------------- | ---------------------------- |
-| MSH             | Bundle                       |
 | PID             | Patient                      |
 | OBR             | Observation Panel            |
 | OBX (NM)        | Observation.valueQuantity    |
