@@ -135,7 +135,7 @@ button[aria-label="Remove file"] svg {
 if not st.session_state.empezar:
     col_titulo, col_logo = st.columns([6, 1])
     with col_titulo:
-        st.title("🏥 Sistema de Interoperabilidad Clinical")
+        st.title("🏥 Sistema de Interoperabilidad Clinica")
         st.caption("Máster en Ingeniería Biomédica | Universidad Pública de Navarra")
     with col_logo:
         if os.path.exists("Upna.png"): st.image("Upna.png", width=100)
